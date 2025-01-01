@@ -1,0 +1,79 @@
+% 修改目录标题
+\renewcommand{\contentsname}{\zihao{3}\heiti \bfseries \resetbaseskip 目 \quad 录}
+
+% 修改多级标题的样式
+\ctexset{
+    % 章节标题 3号 居中 黑体 加粗 段前段后
+    chapter={
+       format=\zihao{3} \heiti \bfseries \centering,
+       beforeskip=-\baselineskip - \parskip + 24pt,
+       afterskip=-\parskip + 18pt,
+       % 修改章首页 page style = fancy 因为 \pagestyle{fancy} 对章首页不生效
+       pagestyle=fancy,
+       % 第一章 -> 第1章
+       number= \arabic{chapter},
+       fixskip=true,
+    %    aftername=\hspace{\ccwd},
+    },
+    % 二级标题 4号 居左 黑体 加粗
+    section={
+        format=\zihao{4} \heiti \bfseries \raggedright,
+        fixskip=true,
+        hang=false,
+        % beforeskip=-\baselineskip - \parskip,
+        % afterskip=-\baselineskip - \parskip,
+        % aftertitle={\vspace{6pt}},
+        % runin=true,
+    },
+    % 三级标题 4号 居左 黑体 加粗 
+    subsection={
+        format=\zihao{-4} \heiti \raggedright \bfseries,
+        % beforeskip=-\baselineskip - \parskip,
+        % afterskip=-\baselineskip - \parskip,
+        hang=false,
+        fixskip=true,
+        % aftertitle={\vspace{14pt}}
+        % runin=true,
+    },
+    autoindent=2\ccwd, % 段首缩进两个汉字宽度
+}
+
+% 定义目录格式
+% 帮助: texdoc titlesec
+
+% 一级标题目录
+\titlecontents{chapter}[4em]
+{\normalsize \vspace{6pt} \bfseries}
+{\contentslabel{4em}}
+{}
+{\titlerule*[1pc]{.} \contentspage}
+
+% 二级标题目录
+\titlecontents{section}[4em]
+{\normalsize}
+{\contentslabel{2em}}
+{}
+{\titlerule*[1pc]{.} \contentspage}
+
+
+% 三级标题目录
+\titlecontents{subsection}[7em]
+{\normalsize}
+{\contentslabel{3em}}
+{}
+{\titlerule*[1pc]{.} \contentspage}
+
+
+% 页眉页脚
+\pagestyle{fancy}
+% 定义目录部分的页脚 页码居中 字号小五
+\newcommand\thesisfoot{\zihao{-5} \thepage}
+% 清除页眉页脚设置
+\fancyhf{}
+
+% 奇数页眉显示章节标题
+\fancyhead[CO]{\zihao{-5} \thesischapter}
+% 偶数页眉显示论文标题
+\fancyhead[CE]{\zihao{-5} \thesistitle}
+% 页脚显示页码
+\fancyfoot[C]{\thesisfoot}

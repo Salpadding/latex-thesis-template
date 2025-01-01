@@ -1,0 +1,67 @@
+\documentclass[a4paper,AutoFakeBold,twoside]{ctexrep} % AutoFakeBold 大多数黑体没有加粗的样式 要对黑体加粗必须要这个
+% 奇偶页眉必须开启 twoside 才会生效 
+% ctex 宏集手册 https://mirrors.ibiblio.org/CTAN/language/chinese/ctex/ctex.pdf
+% lipsum zhlipsum 分别用于生成随机文本 see: texdoc lipsum, texdoc zhlipsum
+\usepackage{lipsum,zhlipsum}
+% fancyhdr 用于页眉页脚设置 see: texdoc fancyhdr
+\usepackage{fancyhdr}
+% 用于设置页面边距 see: texdoc geometry
+\usepackage{geometry}
+% 用于调整目录 样式 帮助: texdoc titlesec
+\usepackage{titlesec,titletoc}
+% 用于引用最后一页的页码: see texdoc lastpage
+\usepackage{lastpage}
+% 用于编写公式 see texdoc amsmath
+\usepackage{amsmath}
+% 用来 画图 画参考线 see texdoc tikz
+\usepackage{tikz}
+
+\newcommand{\thesistitle}{这是论文标题}
+\newcommand{\thesischapter}{\zihao{-5} \leftmark}
+
+% 字体设置
+\input{fonts}
+% 多级标题设置 目录设置 
+\input{toc}
+% 导入生成样本内容的宏 \samplesec \samplechapter \samplerep
+\input{sample}
+
+
+\begin{document}
+\resetbaseskip
+\setlength{\parskip}{0pt}
+
+%画参考线
+% input 导入其他 tex 文件 支持递归导入 
+% include 不支持递归导入
+% 样本文本 使用 \samplerep 生成
+% 统一默认1.5倍行距
+
+% 目录和摘要的页码用大写罗马数字
+\pagenumbering{Roman}
+
+% 导入摘要
+\input{abstract}
+
+% 生成目录
+\renewcommand{\thesischapter}{\zihao{-5} 目录}
+\tableofcontents
+
+% 因为要切换页码了 所以插入分页符
+\newpage
+\renewcommand{\thesischapter}{\zihao{-5} \leftmark}
+% 定义摘要和正文的页脚 = 第n页 共N页这种格式 字号 小五
+% \renewcommand{\thesisfoot}{\zihao{-5} 第\,\thepage\,页\quad 共\,\pageref{LastPage}\,页}
+% 开始用阿拉伯数字生成页码
+% 生成一个空章节清空罗马数字的页码
+\pagenumbering{arabic}
+
+\chapter{查看输出}
+\section{example}
+
+\meaning\section \\
+\thechapter \\
+
+\samplerep
+
+\end{document}

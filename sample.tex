@@ -1,0 +1,50 @@
+\newcommand\samplesubsec{
+这是段落一个空格\quad 三分之一空格\ 六分之一空格\,。\\
+双斜杠换行不会生成新的段落
+
+空白行换行会生成新的段落 会产生缩进
+
+english paragraph also generate indent
+{\sffamily 无衬线字体输出，可以使用\\sffamily }{\rmfamily 默认是有衬线字体，也叫罗马字体，可以用\\rmfamily 开启}
+
+如何修改多级标题的格式，对齐方式，字体，字号，字形
+
+如何修改多级标题的格式，对齐方式，字体，字号，字形
+
+如何修改多级标题的格式，对齐方式，字体，字号，字形
+}
+
+\newcommand\samplesec{
+\section{我是节}
+\subsection{我是小节}
+\samplesubsec
+\subsection{我是小节}
+\samplesubsec
+\subsection{我是小节}
+\samplesubsec
+\subsection{我是小节}
+\samplesubsec
+% 插两个换行符 防止当前subsection 和下一个 section 标题发生重叠
+% \newline\newline
+}
+
+\newcommand\samplechapter{
+\chapter{我是章}
+\samplesec
+
+\samplesec
+
+\samplesec
+
+\samplesec
+}
+
+\newcommand\samplerep{
+    \chapter{我是章}
+    \section{我是节}
+    \zhlipsum
+    \samplechapter
+    \samplechapter
+    \samplechapter
+    \samplechapter
+}

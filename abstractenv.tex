@@ -1,0 +1,9 @@
+% 重定义 abstract 环境
+\renewenvironment{abstract}{
+    \newpage
+    % 生成摘要标题
+    \chapter*{ \abstractname}
+}{
+    % 强制换到下一页
+    \newpage
+}

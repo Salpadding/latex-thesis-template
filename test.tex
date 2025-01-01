@@ -1,0 +1,76 @@
+\documentclass[a4paper,AutoFakeBold]{report}
+\usepackage{ctex}
+\usepackage{titlesec,titletoc}
+\usepackage{zhlipsum}
+\usepackage{pgffor}
+\usepackage{geometry}
+\usepackage{calc}
+% \usepackage{fancyhdr}
+\setlength{\parskip}{0pt}
+
+\geometry{top=2.54cm, bottom=2.54cm, left=3.17cm, right=3.17cm, showframe}
+\titleformat{\chapter}[hang]{\zihao{3} \heiti}{第\arabic{chapter} 章}{1em}{\centering}[]
+\titleformat{\section}[hang]{\zihao{4} \heiti}{\thesection}{1em}{\raggedright}[]
+\titleformat{\subsection}[hang]{\zihao{-4} \heiti}{\thesubsection}{1em}{\raggedright }[]
+
+\titlespacing*{\chapter}{0pt}{-\baselineskip + 26pt}{0pt}[0pt]
+\titlespacing*{\section}{0pt}{0pt}{0pt}[0pt]
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}[0pt]
+
+\begin{document}
+\zihao{-4}
+\setlength{\baselineskip}{20pt}
+
+
+\titlecontents{chapter}[4em]
+{\normalsize \vspace{6pt} \bfseries}
+{\contentslabel{4em}}
+{}
+{\titlerule*[1pc]{.} \contentspage}
+
+% 二级标题目录
+\titlecontents{section}[4em]
+{\normalsize}
+{\contentslabel{2em}}
+{}
+{\titlerule*[1pc]{.} \contentspage}
+
+
+% 三级标题目录
+\titlecontents{subsection}[7em]
+{\normalsize}
+{\contentslabel{3em}}
+{}
+{\titlerule*[1pc]{.} \contentspage}
+
+\tableofcontents
+
+\include{sample}
+
+\samplerep
+%\setlength{\baselineskip}{20pt}
+%\setlength{\parskip}{0pt}
+% \chapter{我是章}
+
+% \foreach \x in {1,...,3} {
+%     \section{我是节}
+%     \subsection{
+%         我是小节
+%     }
+%     {中英文混合字体族abcd}
+
+%     1
+
+%     1
+
+%     1
+
+%     1
+
+%     1
+
+%     1
+%     \zhlipsum
+% }
+
+\end{document}

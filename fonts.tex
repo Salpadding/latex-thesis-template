@@ -1,0 +1,30 @@
+% 正文小四
+\zihao{-4}
+% 修改边距, showframe 显示边距的参考线
+\geometry{top=2.54cm, bottom=2.54cm, left=3.17cm, right=3.17cm}
+
+% 修改中文的罗马字体为 SimSong
+\setCJKmainfont{SimSong}        % 中文主字体（衬线体）使用宋体
+
+% 修改 \sffamily 使用的中文字体
+\setCJKsansfont{STHeiti}      
+
+% 修改 \heiti 使用的字体 
+% \heiti 不会影响数字和英文字体 \sffamily 会影响数字和英文字体
+\setCJKfamilyfont{hei}{STHeiti}
+\renewcommand{\heiti}{\CJKfamily{hei}}
+
+\setmainfont{Times New Roman}  % 英文主字体（衬线体）
+\setsansfont{Arial}            % 英文无衬线体
+
+% 默认行间距20磅 用 \resetbaseskip 设置
+\newcommand{\resetbaseskip}{\setlength{\baselineskip}{20pt}}
+
+
+%\columnsep: 列间距
+%\topmargin: 页眉到页边的距离
+%\topskip: 页眉与正文的距离
+%\textheight: 正文的高度
+%\textwidth: 文本的宽度
+%\oddsidemargin: 奇数页的左面页边距
+%\evensidemargin : 偶数页的左面页边距
